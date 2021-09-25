@@ -1,12 +1,17 @@
+
 #include <cstdlib>
 #include <exception>
 
 
+#pragma once
+
 namespace mtl {
 	//A funky nickname I thought of for a vector lmfao
 	template <class T> class DynamicArray {
-		T* ptr;
-		int sz, idx;
+		int sz = 4;
+		int idx = 0;
+
+		T* ptr = new T[sz];
 
 		void expand();
 		/*Maybe implement this
@@ -18,21 +23,14 @@ namespace mtl {
 
 		void push(T val);
 		T pop();
-
 		void insert(T val, int i);
 
-		T& operator[](int i) {
-			if (i > idx)
-				throw std::exception();
-
-			return ptr[i]; 
-		}
+		T& operator[](int i) { return ptr[i]; }
 		//Does this syntax work?
-		T const& operator[](int i) const {
-			if (i > idx)
-				throw std::exception();
+		T const& operator[](int i) const { return ptr[i]; }
 
-			return ptr[i]; 
-		}
+		T get(int i);
+		T const& get(int i) const;
+
 	};
 }
