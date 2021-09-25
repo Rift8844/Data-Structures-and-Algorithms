@@ -1,4 +1,4 @@
-#include "dynArr.h"
+#include "dynArr.hpp"
 
 using namespace mtl;
 
