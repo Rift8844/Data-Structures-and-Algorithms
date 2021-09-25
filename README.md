@@ -14,9 +14,12 @@ Looking for an alternative template library with superior performance and featur
 I don't know if I'll do all of these or not, as I really haven't done any planning. However, a Dynamic Array should be (by far) the most complex, so it shouldn't take me too long to get the others done if I implement a Dynamic Array in a reasonable amount of time.
 
 ## Building on Linux
+Clone into the repository:
 `git clone https://github.com/Rift8844/Mediocre-Template-Library`
-`cd Mediocre-Template-Library`
-`make`
+Build the code
+`cd Mediocre-Template-Library & make`
+Run the program
+`./mtldemo`
 
 ## Building on Windows
 Get a real operating system, loser
