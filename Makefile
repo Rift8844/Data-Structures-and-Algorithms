@@ -3,8 +3,8 @@ CXX = g++
 CXXFLAGS = -c -g
 LDFLAGS = -o mtldemo
 
-mtldemo: main.o dynArr.o mtl.o
-	$(CXX) $(LDFLAGS) main.o dynArr.o mtl.o
+mtldemo: main.o mtl.o
+	$(CXX) $(LDFLAGS) main.o mtl.o
 
 
 mtl.o: mtl.hpp mtl.cpp
@@ -15,15 +15,9 @@ mtl.cpp:
 	stupid makefile on a friday night I can actually get to work on my programming lol XD" > mtl.cpp
 
 
-dynArr.o: dynArr.hpp dynArr_impl.hpp dynArr.cpp
-	$(CXX) $(CXXFLAGS) dynArr.hpp dynArr_impl.hpp dynArr.cpp
-dynArr.cpp:
-	touch dynArr.cpp
-
-
 main.o: main.cpp
 	$(CXX) $(CXXFLAGS) main.cpp
 
 
 clean:
-	rm *.o *.gch mtl.cpp dynArr.cpp mtldemo
+	rm *.o *.gch mtl.cpp mtldemo
