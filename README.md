@@ -19,7 +19,7 @@ Clone into the repository:
 Build the code
 `cd Mediocre-Template-Library & make`\
 Run the program
-`./mtldemo`\
+`./mtldemo` \
 
 ## Building on Windows
 Get a real operating system, loser
