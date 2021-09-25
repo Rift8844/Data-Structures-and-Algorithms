@@ -15,11 +15,11 @@ I don't know if I'll do all of these or not, as I really haven't done any planni
 
 ## Building on Linux
 Clone into the repository:
-`git clone https://github.com/Rift8844/Mediocre-Template-Library`
+`git clone https://github.com/Rift8844/Mediocre-Template-Library`\
 Build the code
-`cd Mediocre-Template-Library & make`
+`cd Mediocre-Template-Library & make`\
 Run the program
-`./mtldemo`
+`./mtldemo`\
 
 ## Building on Windows
 Get a real operating system, loser
