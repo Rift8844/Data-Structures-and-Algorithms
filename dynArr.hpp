@@ -28,7 +28,9 @@ namespace mtl {
 
 		void push(T val);
 		T pop();
+
 		void insert(T val, int i);
+		T remove(int i);
 
 		T& operator[](int i) { return ptr[i]; }
 		//Does this syntax work?

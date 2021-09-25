@@ -65,3 +65,12 @@ template <class T> void DynamicArray<T>::insert(T val, int i) {
 	ptr[i] = val;
 }
 
+template <class T> T DynamicArray<T>::remove(int i) {
+	idx--;
+
+	T old = get(i);
+	for (int j = i; j < idx; j++)
+		ptr[j] = ptr[j+1];
+
+	return old;
+}
