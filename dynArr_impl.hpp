@@ -4,12 +4,12 @@
 using namespace mtl;
 
 
-/*template <class T> T const& DynamicArray<T>::get(int i) const {
+template <class T> T const& DynamicArray<T>::get(int i) const {
 	if (i > idx)
 		throw std::exception();
 
 	return ptr[i]; 
-}*/
+}
 
 template <class T> T DynamicArray<T>::get(int i) {
 	if (i > idx - 1)
@@ -18,24 +18,26 @@ template <class T> T DynamicArray<T>::get(int i) {
 	return ptr[i]; 
 }
 
+template <class T> void DynamicArray<T>::realloc(int newSz) {
+	if (newSz < size())
+		throw std::exception();
 
-
-template <class T> void DynamicArray<T>::expand() {
-	sz *= 2;
 	T* oldPtr = ptr;
-	ptr = new T[sz];
+	ptr = new T[newSz];
 
 	//Allocation error
 	if (ptr == nullptr)
 		throw std::exception();
 
-	for (int i = 0; i < sz/2; i++)
+	for (int i = 0; i < idx; i++)
 		ptr[i] = oldPtr[i];
+
+	sz = newSz;
 
 	delete[] oldPtr;
 }
 
-template <class T> void DynamicArray<T>::push(T val) {
+template <class T> void DynamicArray<T>::pushBack(T val) {
 	if (idx > sz - 1)
 		expand();
 
@@ -43,7 +45,7 @@ template <class T> void DynamicArray<T>::push(T val) {
 	idx++;
 }
 
-template <class T> T DynamicArray<T>::pop() {
+template <class T> T DynamicArray<T>::popBack() {
 	idx--;
 	return ptr[idx + 1];
 }
@@ -65,7 +67,7 @@ template <class T> void DynamicArray<T>::insert(T val, int i) {
 	ptr[i] = val;
 }
 
-template <class T> T DynamicArray<T>::remove(int i) {
+template <class T> T DynamicArray<T>::erase(int i) {
 	idx--;
 
 	T old = get(i);
