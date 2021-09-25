@@ -45,7 +45,7 @@ template <class T> void DynamicArray<T>::push(T val) {
 
 template <class T> T DynamicArray<T>::pop() {
 	idx--;
-	return ptr[idx];
+	return ptr[idx + 1];
 }
 
 template <class T> void DynamicArray<T>::insert(T val, int i) {
