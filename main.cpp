@@ -2,20 +2,33 @@
 #include <iostream>
 #include <string>
 
-struct Type {
-	int x, y, z;
+struct TestType {
+	int itemNo;
 	std::string str;
 };
+
+std::ostream& operator<<(std::ostream& os, TestType const& tt) {
+	return os << "Item no: " << tt.itemNo <<
+	"\nItem content: " << tt.str;
+}
 
 int main() {
 	std::cout << "Hello mtl world!" << std::endl;
 
-	mtl::DynamicArray<Type> myObj;
-	myObj.push({0, 1, 2, "HELLO TEMPLATED WORLD!"});
-	myObj.push({1, 2, 999, "THREE BEDROOMS IN A GOOD NEIGHBORHOOD YAAHHHHHHHH!!!"});
-	myObj.insert({3, 4, 5, "I'M A GENIUS AHAHHAHAHHAHA"}, 0);
+	mtl::DynamicArray<TestType> myArr;
 
-	std::cout << myObj[0].str << std::endl;
+	//Item 0
+	myArr.push(TestType {0, "HELLO TEMPLATED WORLD!"});
+
+	//Item 1
+	myArr.push(TestType {1, "THREE BEDROOMS IN A GOOD NEIGHBORHOOD YAAHHHHHHHH!!!"});
+
+	//Item 2
+	myArr.insert(TestType {2, "I'M A GENIUS AHAHHAHAHHAHA"}, 0);
+
+	for (int i = 0; i < myArr.getSize() - 1; i++) {
+		std::cout << myArr.get(i) << std::endl;
+	}
 
 	return 0;
 }

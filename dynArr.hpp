@@ -19,7 +19,12 @@ namespace mtl {
 		//void shrink();
 
 	public:
-		int getSize() const { return sz; };
+		/*Note: the actual size, the sz variable,
+		is the amount of objects the current
+		memory allocation can hold. The idx
+		variable is the effective size, which is how
+		many initialized objects lay in memory.*/
+		int getSize() const { return idx + 1; };
 
 		void push(T val);
 		T pop();
@@ -30,7 +35,7 @@ namespace mtl {
 		T const& operator[](int i) const { return ptr[i]; }
 
 		T get(int i);
-		T const& get(int i) const;
+		//T const& get(int i) const;
 
 	};
 }

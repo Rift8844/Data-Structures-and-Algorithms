@@ -4,15 +4,15 @@
 using namespace mtl;
 
 
-template <class T> T const& DynamicArray<T>::get(int i) const {
+/*template <class T> T const& DynamicArray<T>::get(int i) const {
 	if (i > idx)
 		throw std::exception();
 
 	return ptr[i]; 
-}
+}*/
 
 template <class T> T DynamicArray<T>::get(int i) {
-	if (i > idx)
+	if (i > idx - 1)
 		throw std::exception();
 	
 	return ptr[i]; 
@@ -56,9 +56,11 @@ template <class T> void DynamicArray<T>::insert(T val, int i) {
 		expand();
 
 	//Push an item onto the stack
-	for (int j = idx; j > i; j--) {
+	for (int j = idx; j >= i; j--) {
 		ptr[j+1] = ptr[j];
 	}
+
+	idx++;
 
 	ptr[i] = val;
 }
