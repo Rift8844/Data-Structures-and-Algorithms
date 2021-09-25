@@ -29,7 +29,7 @@ template <class T> void DynamicArray<T>::expand() {
 	if (ptr == nullptr)
 		throw std::exception();
 
-	for (int i = 0; i < sz; i++)
+	for (int i = 0; i < sz/2; i++)
 		ptr[i] = oldPtr[i];
 
 	delete[] oldPtr;
