@@ -19,15 +19,15 @@ template <class T> T DynamicArray<T>::get(int i) {
 }
 
 template <class T> void DynamicArray<T>::realloc(int newSz) {
-	if (newSz < size())
-		throw std::exception();
-
 	T* oldPtr = ptr;
 	ptr = new T[newSz];
 
 	//Allocation error
 	if (ptr == nullptr)
 		throw std::exception();
+
+	if (newSz < idx + 1)
+		idx = newSz - 1;
 
 	for (int i = 0; i < idx; i++)
 		ptr[i] = oldPtr[i];
@@ -67,12 +67,17 @@ template <class T> void DynamicArray<T>::insert(T val, int i) {
 	ptr[i] = val;
 }
 
-template <class T> T DynamicArray<T>::erase(int i) {
-	idx--;
+template <class T> void DynamicArray<T>::erase(int i) {
 
-	T old = get(i);
-	for (int j = i; j < idx; j++)
+	for (int j = i; j < idx - 1; j++)
 		ptr[j] = ptr[j+1];
 
-	return old;
+	idx--;
+}
+
+template <class T> void DynamicArray<T>::clear() {
+	delete[] ptr;
+	ptr = new T[4];
+	idx = 0;
+	sz = 4;
 }

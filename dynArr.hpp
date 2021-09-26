@@ -34,8 +34,8 @@ namespace mtl {
 		void pushBack(T val);
 		T popBack();
 		void insert(T val, int i);
-		T erase(int i);
-		void clear() { idx = 0; }
+		void erase(int i);
+		void clear();
 
 		T& operator[](int i) { return ptr[i]; }
 		//Does this syntax work?

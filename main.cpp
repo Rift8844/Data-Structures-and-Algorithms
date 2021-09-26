@@ -13,22 +13,27 @@ std::ostream& operator<<(std::ostream& os, TestType const& tt) {
 }
 
 int main() {
-	std::cout << "Hello mtl world!" << std::endl;
-
 	mtl::DynamicArray<TestType> myArr;
 
-	//Item 0
-	myArr.push(TestType {0, "HELLO TEMPLATED WORLD!"});
+	myArr.pushBack({-1, "I shouldn't be printed"});
+	myArr.pushBack({-1, "Nor should I"});
+	myArr.clear();
 
-	//Item 1
-	myArr.push(TestType {1, "THREE BEDROOMS IN A GOOD NEIGHBORHOOD YAAHHHHHHHH!!!"});
+	myArr.pushBack({0, "Print test one"});
+	myArr.insert({1, "Print test two"}, 0);
 
-	//Item 2
-	myArr.insert(TestType {2, "I'M A GENIUS AHAHHAHAHHAHA"}, 0);
+	myArr.pushBack({-1, "I shouldn't be printed"});
+	myArr.popBack();
+	myArr.pushBack({-1, "Me neither"});
+	myArr.erase(myArr.size() - 1);
 
-	for (int i = 0; i < myArr.getSize() - 1; i++) {
+	myArr.pushBack({2, "Test"});
+	myArr.shrinkToFit();
+
+	for (int i = 0; i < myArr.size() - 1; i++) {
 		std::cout << myArr.get(i) << std::endl;
 	}
+
 
 	return 0;
 }
