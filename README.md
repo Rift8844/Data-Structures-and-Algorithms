@@ -1,9 +1,9 @@
-# Mediocre Template Library (MTL)
+# Mediocre Template Library (aka. elseq)w
 
 *Here's a nice picture to show how seriously I take my work. I put a lot of effort into it!*
 ![Image](https://repository-images.githubusercontent.com/408642469/ea77857d-380e-4d00-8bb8-c3a2a99b2627)
 
-Looking for an alternative template library with superior performance and features? Look ~~no~~ further than here, because this is just mediocre! This is the mediocre template library. This will probably be nowhere near the gold standard C++ Standard Template Library in terms of the likes of performance, memory usage, and most noticeably, features. It's more of a learning expereince for me, especially since my OOP programming got rusty after working on my emulator for so long.
+Looking for an alternative template library with superior performance and features? Look ~~no~~ further than here, because this is just mediocre! This is elseq, a mediocre template library. This will probably be nowhere near the gold standard C++ Standard Template Library in terms of the likes of performance, memory usage, and most noticeably, features. It's more of a learning expereince for me, especially since my OOP programming got rusty after working on my emulator for so long.
 
 ## Implemented Structures:
 - [ ] Dynamic Array (partially done)
@@ -15,11 +15,11 @@ I don't know if I'll do all of these or not, as I really haven't done any planni
 
 ## Building on Linux
 Clone into the repository:
-`git clone https://github.com/Rift8844/Mediocre-Template-Library`\
+`git clone https://github.com/Rift8844/elseq`\
 Build the code
-`cd Mediocre-Template-Library & make`\
+`cd elseq & make`\
 Run the program
-`./mtldemo` 
+`./elseqdemo` 
 
 ## Building on Windows
 Get a real operating system, loser
