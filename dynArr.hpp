@@ -7,7 +7,7 @@
 
 namespace mtl {
 	//A funky nickname I thought of for a vector lmfao
-	template <class T> class DynamicArray {
+	template <typename T> class DynamicArray {
 		int sz = 4;
 		int idx = 0;
 

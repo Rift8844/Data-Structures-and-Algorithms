@@ -1,83 +1,83 @@
 
 #include "dynArr.hpp"
 
-using namespace mtl;
 
+namespace mtl {
+	template <class T> T const& DynamicArray<T>::get(int i) const {
+		if (i > idx)
+			throw std::exception();
 
-template <class T> T const& DynamicArray<T>::get(int i) const {
-	if (i > idx)
-		throw std::exception();
-
-	return ptr[i]; 
-}
-
-template <class T> T DynamicArray<T>::get(int i) {
-	if (i > idx - 1)
-		throw std::exception();
-	
-	return ptr[i]; 
-}
-
-template <class T> void DynamicArray<T>::realloc(int newSz) {
-	T* oldPtr = ptr;
-	ptr = new T[newSz];
-
-	//Allocation error
-	if (ptr == nullptr)
-		throw std::exception();
-
-	if (newSz < idx + 1)
-		idx = newSz - 1;
-
-	for (int i = 0; i < idx; i++)
-		ptr[i] = oldPtr[i];
-
-	sz = newSz;
-
-	delete[] oldPtr;
-}
-
-template <class T> void DynamicArray<T>::pushBack(T val) {
-	if (idx > sz - 1)
-		expand();
-
-	ptr[idx] = val;
-	idx++;
-}
-
-template <class T> T DynamicArray<T>::popBack() {
-	idx--;
-	return ptr[idx + 1];
-}
-
-template <class T> void DynamicArray<T>::insert(T val, int i) {
-	
-	/*Make sure we have enough room for one more
-	item on the top of the stack!*/
-	if (idx > sz - 2)
-		expand();
-
-	//Push an item onto the stack
-	for (int j = idx; j >= i; j--) {
-		ptr[j+1] = ptr[j];
+		return ptr[i]; 
 	}
 
-	idx++;
+	template <class T> T DynamicArray<T>::get(int i) {
+		if (i > idx - 1)
+			throw std::exception();
+		
+		return ptr[i]; 
+	}
 
-	ptr[i] = val;
-}
+	template <class T> void DynamicArray<T>::realloc(int newSz) {
+		T* oldPtr = ptr;
+		ptr = new T[newSz];
 
-template <class T> void DynamicArray<T>::erase(int i) {
+		//Allocation error
+		if (ptr == nullptr)
+			throw std::exception();
 
-	for (int j = i; j < idx - 1; j++)
-		ptr[j] = ptr[j+1];
+		if (newSz < idx + 1)
+			idx = newSz - 1;
 
-	idx--;
-}
+		for (int i = 0; i < idx; i++)
+			ptr[i] = oldPtr[i];
 
-template <class T> void DynamicArray<T>::clear() {
-	delete[] ptr;
-	ptr = new T[4];
-	idx = 0;
-	sz = 4;
+		sz = newSz;
+
+		delete[] oldPtr;
+	}
+
+	template <class T> void DynamicArray<T>::pushBack(T val) {
+		if (idx > sz - 1)
+			expand();
+
+		ptr[idx] = val;
+		idx++;
+	}
+
+	template <class T> T DynamicArray<T>::popBack() {
+		idx--;
+		return ptr[idx + 1];
+	}
+
+	template <class T> void DynamicArray<T>::insert(T val, int i) {
+		
+		/*Make sure we have enough room for one more
+		item on the top of the stack!*/
+		if (idx > sz - 2)
+			expand();
+
+		//Push an item onto the stack
+		for (int j = idx; j >= i; j--) {
+			ptr[j+1] = ptr[j];
+		}
+
+		idx++;
+
+		ptr[i] = val;
+	}
+
+	template <class T> void DynamicArray<T>::erase(int i) {
+
+		for (int j = i; j < idx - 1; j++)
+			ptr[j] = ptr[j+1];
+
+		idx--;
+	}
+
+	template <class T> void DynamicArray<T>::clear() {
+		delete[] ptr;
+		ptr = new T[4];
+		idx = 0;
+		sz = 4;
+	}
 }
