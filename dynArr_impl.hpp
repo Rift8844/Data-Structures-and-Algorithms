@@ -3,21 +3,21 @@
 
 
 namespace mtl {
-	template <class T> T const& DynamicArray<T>::get(int i) const {
+	template <typename T> T const& DynamicArray<T>::get(int i) const {
 		if (i > idx)
 			throw std::exception();
 
 		return ptr[i]; 
 	}
 
-	template <class T> T DynamicArray<T>::get(int i) {
+	template <typename T> T DynamicArray<T>::get(int i) {
 		if (i > idx - 1)
 			throw std::exception();
 		
 		return ptr[i]; 
 	}
 
-	template <class T> void DynamicArray<T>::realloc(int newSz) {
+	template <typename T> void DynamicArray<T>::realloc(int newSz) {
 		T* oldPtr = ptr;
 		ptr = new T[newSz];
 
@@ -36,7 +36,7 @@ namespace mtl {
 		delete[] oldPtr;
 	}
 
-	template <class T> void DynamicArray<T>::pushBack(T val) {
+	template <typename T> void DynamicArray<T>::pushBack(T val) {
 		if (idx > sz - 1)
 			expand();
 
@@ -44,12 +44,12 @@ namespace mtl {
 		idx++;
 	}
 
-	template <class T> T DynamicArray<T>::popBack() {
+	template <typename T> T DynamicArray<T>::popBack() {
 		idx--;
 		return ptr[idx + 1];
 	}
 
-	template <class T> void DynamicArray<T>::insert(T val, int i) {
+	template <typename T> void DynamicArray<T>::insert(T val, int i) {
 		
 		/*Make sure we have enough room for one more
 		item on the top of the stack!*/
@@ -66,7 +66,7 @@ namespace mtl {
 		ptr[i] = val;
 	}
 
-	template <class T> void DynamicArray<T>::erase(int i) {
+	template <typename T> void DynamicArray<T>::erase(int i) {
 
 		for (int j = i; j < idx - 1; j++)
 			ptr[j] = ptr[j+1];
@@ -74,7 +74,7 @@ namespace mtl {
 		idx--;
 	}
 
-	template <class T> void DynamicArray<T>::clear() {
+	template <typename T> void DynamicArray<T>::clear() {
 		delete[] ptr;
 		ptr = new T[4];
 		idx = 0;
