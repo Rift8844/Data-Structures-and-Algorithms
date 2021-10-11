@@ -14,6 +14,8 @@ std::ostream& operator<<(std::ostream& os, TestType const& tt) {
 
 int main() {
 	mtl::dynamic_array<TestType> myArr;
+	mtl::stupid_ptr<int> horrendousMess(new int[64], 64);
+	mtl::avl_tree tree;
 
 	myArr.pushBack({-1, "I shouldn't be printed"});
 	myArr.pushBack({-1, "Nor should I"});
@@ -33,7 +35,6 @@ int main() {
 	for (int i = 0; i < myArr.size() - 1; i++) {
 		std::cout << myArr.get(i) << std::endl;
 	}
-
 
 	return 0;
 }
