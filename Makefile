@@ -1,9 +1,9 @@
 CXX = g++
 #CPPFLAGS = -c
 CXXFLAGS = -c -g
-LDFLAGS = -o mtldemo
+LDFLAGS = -o elseqdemo
 
-mtldemo: main.o mtl.o
+elseqdemo: main.o mtl.o
 	$(CXX) $(LDFLAGS) main.o mtl.o
 
 
@@ -20,4 +20,4 @@ main.o: main.cpp
 
 
 clean:
-	rm *.o *.gch mtl.cpp mtldemo
+	rm *.o *.gch mtl.cpp elseqdemo

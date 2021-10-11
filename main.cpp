@@ -13,7 +13,7 @@ std::ostream& operator<<(std::ostream& os, TestType const& tt) {
 }
 
 int main() {
-	mtl::DynamicArray<TestType> myArr;
+	mtl::dynamic_array<TestType> myArr;
 
 	myArr.pushBack({-1, "I shouldn't be printed"});
 	myArr.pushBack({-1, "Nor should I"});
