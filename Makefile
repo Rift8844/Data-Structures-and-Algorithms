@@ -1,6 +1,6 @@
 CXX = g++
 #CPPFLAGS = -c
-CXXFLAGS = -c -g
+CXXFLAGS = -c -g -fpermissive
 LDFLAGS = -o elseqdemo
 
 elseqdemo: main.o mtl.o

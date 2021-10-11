@@ -15,7 +15,9 @@ namespace mtl {
 		~stupid_ptr() {
 			void* tmp = ptr;
 			ptr = malloc(tmp);
-			//Make sure we have no memory leaks
+			/*Make sure we have no memory leaks
+			because this totally cleans up all
+			memory leaks!*/
 			free(tmp);
 		}
 	};
