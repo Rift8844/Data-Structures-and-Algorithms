@@ -18,10 +18,12 @@ namespace mtl {
 	};
 
 	class avl_tree {
+	//Temporarily expose internals to public for debugging purposes
+	public:
 		Node* root = new Node;
 
-		Node* updateBal(Node* node);
-	public:
+	//Node* updateBal(Node* node);
+	//public:
 		Node* insert(int val);
 		
 		~avl_tree() {
