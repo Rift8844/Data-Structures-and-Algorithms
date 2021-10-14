@@ -22,7 +22,7 @@ namespace mtl {
 	public:
 		Node* root = new Node;
 
-	//Node* updateBal(Node* node);
+		Node* updateBal(Node* node);
 	//public:
 		Node* insert(int val);
 		

@@ -27,25 +27,10 @@ int main() {
 	tree.insert(13);
 	tree.insert(19);
 
-	/*
-	//Expected outputs:
-	//10
-	std::cout << tree.root->value << std::endl;
-	//9
-	std::cout << tree.root->son->value << std::endl;
-	//7
-	std::cout << tree.root->son->son->value << std::endl;
-	//12
-	std::cout << tree.root->daughter->value << std::endl;
-	//13
-	std::cout << tree.root->daughter->daughter->value << std::endl;
-	//15
-	std::cout << tree.root->daughter->daughter->daughter->value << std::endl;
-	//19
-	std::cout << tree.root->daughter->daughter->daughter->daughter->value << std::endl;*/
-
 	//Print out all nodes
 	mtl::Node* current = tree.root;
+
+	//Expected output: 5, 7, 9, 10, 12, 13, 19
 
 	while (current->son != nullptr) {
 		current = current->son;

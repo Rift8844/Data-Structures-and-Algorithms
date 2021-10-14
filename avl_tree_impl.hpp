@@ -40,21 +40,22 @@ namespace mtl {
 			}
 		}
 
-		current = newNode;
-		//update balance factors for all ascending nodes
-		while (current != nullptr && current->parent != nullptr) {
-			if (current == current->parent->daughter)
-				current->parent->balance++;
-			else
-				current->parent->balance--;
-
-			current = current->parent;
-		}
-
-		return newNode;
+		return updateBal(newNode);
 	}
 
-	//sNode* avl_tree::updateBal(Node* node) {};
+	//Only balances ascending nodes
+	Node* avl_tree::updateBal(Node* node) {
+
+		//update balance factors for all ascending nodes
+		while (node != nullptr && node->parent != nullptr) {
+			if (node == node->parent->daughter)
+				node->parent->balance++;
+			else
+				node->parent->balance--;
+
+			node = node->parent;
+		}
+	};
 
 	Node::~Node() {
 		if (daughter != nullptr)
