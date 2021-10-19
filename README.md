@@ -1,4 +1,4 @@
-# Mediocre Template Library (aka. elseq)w
+# Mediocre Template Library (aka. elseq)
 
 *Here's a nice picture to show how seriously I take my work. I put a lot of effort into it!*
 ![Image](https://repository-images.githubusercontent.com/408642469/ea77857d-380e-4d00-8bb8-c3a2a99b2627)
