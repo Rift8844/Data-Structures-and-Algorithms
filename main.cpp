@@ -13,32 +13,44 @@ std::ostream& operator<<(std::ostream& os, TestType const& tt) {
 	"\nItem content: " << tt.str;
 }
 
+
+void printRecursive(mtl::Node* node) {
+	if (node->son != nullptr)
+		printRecursive(node->son);
+
+	if (node->daughter != nullptr)
+		printRecursive(node->daughter);
+
+	std::cout << "Node val: " << node->value <<
+	"\nNode balance: " << (int) node->balance << '\n' << std::endl;
+}
+
 int main() {
 	mtl::dynamic_array<TestType> myArr;
 	//mtl::stupid_ptr<int> horrendousMess(new int[64], 64);
 	mtl::avl_tree tree;
 
-	tree.root->value = 10;
-	tree.insert(9);
+	tree.insert(20);
+	tree.insert(15);
+	tree.insert(25);
+	tree.insert(10);
 	tree.insert(7);
-	tree.insert(5);
-	//This will make the tree unbalanced
+	tree.insert(18);
 	tree.insert(12);
-	tree.insert(13);
-	tree.insert(19);
+	tree.insert(11);
 
-	//Print out all nodes
-	mtl::Node* current = tree.root;
 
 	//Expected output: 5, 7, 9, 10, 12, 13, 19
 
-	while (current->son != nullptr) {
+	printRecursive(tree.root);
+
+	/*while (current->son != nullptr) {
 		current = current->son;
 	}
 
 	while(current->parent != nullptr) {
 		std::cout << "Node value: " << current->value <<
-		"\nNode balance: " << (int) current->balance << std::endl;
+		"\nNode balance: " << (int) current->balance << '\n' << std::endl;
 		current = current->parent;
 	}
 
@@ -46,30 +58,9 @@ int main() {
 	current = tree.root;
 	while (current != nullptr) {
 		std::cout << "Node value: " << current->value <<
-		"\nNode balance: " << (int) current->balance << std::endl;
+		"\nNode balance: " << (int) current->balance << '\n' << std::endl;
 
 		current = current->daughter;
-	}
-
-	
-
-	/*myArr.pushBack({-1, "I shouldn't be printed"});
-	myArr.pushBack({-1, "Nor should I"});
-	myArr.clear();
-
-	myArr.pushBack({0, "Print test one"});
-	myArr.insert({1, "Print test two"}, 0);
-
-	myArr.pushBack({-1, "I shouldn't be printed"});
-	myArr.popBack();
-	myArr.pushBack({-1, "Me neither"});
-	myArr.erase(myArr.size() - 1);
-
-	myArr.pushBack({2, "Test"});
-	myArr.shrinkToFit();
-
-	for (int i = 0; i < myArr.size() - 1; i++) {
-		std::cout << myArr.get(i) << std::endl;
 	}*/
 
 	return 0;

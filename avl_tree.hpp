@@ -15,20 +15,31 @@ namespace mtl {
 		//Node(Node* par, char bal) : parent{par}, balance{bal} {};
 
 		~Node();
+		Node*& parents_ptr();
 	};
 
 	class avl_tree {
 	//Temporarily expose internals to public for debugging purposes
 	public:
-		Node* root = new Node;
-
+		Node* root = nullptr;
 		Node* updateBal(Node* node);
+		void rotRight(Node* node);
+		void rotLeft(Node* node);
+
+		void rotLR(Node* node);
+		void rotRL(Node* node);
+
+		void rebalance(Node* node);
+
 	//public:
 		Node* insert(int val);
+		void remove(Node* node);
+
 		
 		~avl_tree() {
 			//Recursively deletes the rest of the nodes, too
-			delete root;
+			if (root != nullptr)
+				delete root;
 		}
 	};
 
